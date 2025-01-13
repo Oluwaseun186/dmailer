@@ -38,11 +38,17 @@ jobs:
             docker run -p 3000:3000 -d oluwaseun7/dmailer:latest
 
      
-      - name: Upload artifact
-        uses: actions/upload-artifact@v3
+
+      - name: "Upload artifact"
+        uses: actions/upload-artifact@v4
         with:
-          name: my-artifact-1
-          path: ./home/ Downloads/artifact.txt
+          name: mailerdragon
+          path: .
+          retention-days: 90
+          compression-level: 9
+          if-no-files-found: warn
+          overwrite: false
+          include-hidden-files: false
 
       - name: Send email
         uses: dawidd6/action-send-mail@v4
