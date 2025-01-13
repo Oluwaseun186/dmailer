@@ -49,6 +49,11 @@ jobs:
         with:
             username: ${{ secrets.DOCKERHUB_USERNAME }}
             password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
+      - name: "Push Image to Docker Hub"
+        run: |
+          docker push oluwaseun7/dmailer:latest
+          docker run -p 3000:3000 -d oluwaseun7/dmailer:latest
      
 
       - name: "Upload artifact"
@@ -103,12 +108,7 @@ jobs:
           name: dmailer
           path: ./work.txt
           if-no-files-found: warn
-
-      - name: "Push Image to Docker Hub"
-        run: |
-          docker push oluwaseun7/dmailer:latest
-          docker run -p 3000:3001 -d oluwaseun7/dmailer:latest
-
+          
       - name: Send email
         uses: dawidd6/action-send-mail@v4
         with:
