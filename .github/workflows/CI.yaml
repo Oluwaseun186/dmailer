@@ -59,7 +59,19 @@ jobs:
           from: ${{ secrets.EMAIL }}
           secure: true # Set to false for non-TLS/SSL connections
           tls: true
+  
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/download-artifact@v4
+      with:
+        name: my-artifact
+        path: home/documents/myartifact.txt
         
+    - name: Display structure of downloaded files
+      run: ls -R home/documents/myartifact.txt
+
 
 
      
