@@ -86,6 +86,16 @@ jobs:
       - name: List artifacts
         run: ls -l .
 
+      - name: "Generate Report"  
+        run: npm ci
+
+      - name: "Run Lint"
+        run: npm run lint:json
+        continue-on-error: true
+      - uses: ldiego73/eslint-report-action@v1.1
+        with:
+          token: ${{ secrets.TOKEN_GITHUB }}
+          report: reports/lint.json
 
       - name: Send email
         uses: dawidd6/action-send-mail@v4
