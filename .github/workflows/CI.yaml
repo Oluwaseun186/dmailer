@@ -94,8 +94,6 @@ jobs:
       - name: "Run Lint"
         run: npm run lint:json
         continue-on-error: true
-      
-      - run: token ${{ secrets.TOKEN_GITHUB }}" \https://api.github.com/oluwaseun186
 
       - uses: ldiego73/eslint-report-action@v1.1
         with:
