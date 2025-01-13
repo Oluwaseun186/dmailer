@@ -44,6 +44,7 @@ jobs:
           path: path/to/artifact/ # or path/to/artifact
           compress: true
           overwrite: true
+          include-hidden-file: true
 
       - name: Send email
         uses: dawidd6/action-send-mail@v4
