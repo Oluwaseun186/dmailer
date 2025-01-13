@@ -40,7 +40,6 @@ jobs:
 
   Build:
     runs-on: ubuntu-latest
-    needs: pre-commit
     steps:
       - name: "Build Image"
         run: |
