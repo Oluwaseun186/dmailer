@@ -36,7 +36,20 @@ jobs:
         run: |
             docker push oluwaseun7/dmailer:latest
             docker run -p 3000:3000 -d oluwaseun7/dmailer:latest
-       
+
+      - name: Send email
+        uses: dawidd6/action-send-mail@v4
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.EMAIL }}
+          password: ${{ secrets.PASSWORD }}
+          subject: "GitHub Action Notification"
+          body: "Hello! This is a test email sent from GitHub Actions."
+          to: "theoafactor@gmail.com"
+          from: ${{ secrets.EMAIL }}
+          secure: true # Set to false for non-TLS/SSL connections
+        
 
 
      
