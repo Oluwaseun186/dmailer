@@ -93,7 +93,7 @@ jobs:
 
       - name: Run ESLint
         run: npx eslint . -f json -o reports/lint.json
-        continue-on-error: true
+        continue-on-error: false
 
       - name: Run ESLint with Reviewdog
         uses: reviewdog/action-eslint@v1
