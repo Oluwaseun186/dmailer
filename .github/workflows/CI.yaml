@@ -31,9 +31,10 @@ jobs:
         with:
             username: ${{ secrets.DOCKERHUB_USERNAME }}
             password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
       - name: "Push Image to Docker Hub"
         run: |
-            docker push ${{secrets.DOCKER_USERNAME}}/dmailer:latest
+            docker push ${{ secrets.DOCKER_USERNAME }}/dmailer:latest
             docker run -p 3000:3000 -d ${{secrets.DOCKER_USERNAME}}/dmailer:latest
        
 
