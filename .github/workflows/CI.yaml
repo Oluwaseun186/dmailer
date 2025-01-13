@@ -38,9 +38,6 @@ jobs:
       - name: Run Tests
         run: npm test
 
-  Build:
-    runs-on: ubuntu-latest
-    steps:
       - name: "Build Image"
         run: |
           docker build -t Oluwaseun7/dmailer:latest .
