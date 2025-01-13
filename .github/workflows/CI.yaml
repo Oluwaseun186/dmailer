@@ -95,15 +95,12 @@ jobs:
         run: npm run lint:json
         continue-on-error: true
 
-      - name: Run ESLint
-        uses: ldiego73/eslint-report-action@v1.1
+      - name: Run ESLint with Reviewdog
+        uses: reviewdog/action-eslint@v1
         with:
-          token: ${{ secrets.TOKEN_GITHUB }}
-          report: reports/lint.json
-          title: ESLint Report
-          view-rules: true
-          fail-on-warning: false
-          total-problems: 100
+          github_token: ${{ secrets.PAT_TOKEN }}
+          reporter: github-pr-review
+
 
 
 
