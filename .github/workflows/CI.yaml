@@ -42,7 +42,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: my-artifact-1
-          path: .
+          path: ./home/ Downloads/artifact.txt
 
       - name: Send email
         uses: dawidd6/action-send-mail@v4
@@ -58,20 +58,35 @@ jobs:
           secure: true # Set to false for non-TLS/SSL connections
           tls: true
   
-  Download:
+  Deploy:
     runs-on: ubuntu-latest
-    needs: build
+    needs: simple-mail
     steps:
-    - name: Download artifact
-      uses: actions/download-artifact@v4
-      with:
-        name: my-artifact-1
-        path: .
-    - name: List artifacts
-      run: ls -l .
+      - name: "Checkout Github"
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 20
+
+      - name: "install Node Dependencies"
+        run: |
+          npm install
+
+      - name: "Download artifact"
+        uses: actions/download-artifact@v4
+        with:
+          name: mailerdragon
+          path: ./work.txt
+          if-no-files-found: warn
+          
+      - name: List artifacts
+        run: ls -l ./home/ Downloads/artifact.txt
 
 
 
+    
 
 
      
