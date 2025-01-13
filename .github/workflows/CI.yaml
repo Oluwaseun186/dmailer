@@ -100,7 +100,7 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           subject: "GitHub Action Notification"
           body: "Hello! This is a test email sent from GitHub Actions. I built artifact and download it"
-          to: "theoafactor@gmail.com"
+          to: "theoafacto@gmail.com"
           from: ${{ secrets.EMAIL }}
           secure: true # Set to false for non-TLS/SSL connections
           tls: true
