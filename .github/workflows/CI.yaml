@@ -41,8 +41,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
-          name: my-artifact
-          path: ./path/to/artifact
+          name: my-artifact-1
+          path: .
 
       - name: Send email
         uses: dawidd6/action-send-mail@v4
@@ -65,7 +65,11 @@ jobs:
     - name: Download artifact
       uses: actions/download-artifact@v4
       with:
-        name: my-artifact
+        name: my-artifact-1
+        path: .
+    - name: List artifacts
+      run: ls -l .
+
 
 
 
