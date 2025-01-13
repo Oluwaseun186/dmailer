@@ -68,8 +68,7 @@ jobs:
       uses: actions/download-artifact@v4
       with:
         name: my-artifact
-        path: home/Documents/myartifact.txt
-        
+
     - name: Display structure of downloaded files
       run: ls -R home/documents/myartifact.txt
 
