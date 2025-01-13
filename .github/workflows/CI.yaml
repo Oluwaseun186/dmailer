@@ -17,7 +17,7 @@ jobs:
       - name: "Install Node.js"
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
 
       - name: "Install dependencies"
         run: npm install
@@ -25,7 +25,7 @@ jobs:
       # Step 4: Run Linting
       - name: Run ESLint
         run: npx eslint . --ext .js,.jsx,.ts,.tsx
-        
+
       # Step 4: Run Lint-Staged
       - name: Run Lint-Staged
         run: npx lint-staged
@@ -48,7 +48,6 @@ jobs:
         run: |
             docker push oluwaseun7/dmailer:latest
             docker run -p 3000:3000 -d oluwaseun7/dmailer:latest
-
      
 
       - name: "Upload artifact"
@@ -79,12 +78,6 @@ jobs:
         run: |
           npm install
 
-      - name: "Download artifact"
-        uses: actions/download-artifact@v4
-        with:
-          name: dmailer
-          path: ./work.txt
-          if-no-files-found: warn
 
       - name: List artifacts
         run: ls -l ./work.txt
@@ -103,6 +96,14 @@ jobs:
           from: ${{ secrets.EMAIL }}
           secure: true # Set to false for non-TLS/SSL connections
           tls: true
+
+      - name: "Download artifact"
+        uses: actions/download-artifact@v4
+        with:
+          name: dmailer
+          path: ./work.txt
+          if-no-files-found: warn
+
 
 
     
