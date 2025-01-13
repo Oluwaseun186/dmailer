@@ -98,12 +98,13 @@ jobs:
       - name: Run ESLint
         uses: ldiego73/eslint-report-action@v1.1
         with:
-          token: ${{ secrets.TOKEN_GITHUB }}
+          token: ${{ secrets.PAT_TOKEN }}
           report: reports/lint.json
           title: ESLint Report
           view-rules: true
           fail-on-warning: false
           total-problems: 100
+
 
 
       - name: Send email
