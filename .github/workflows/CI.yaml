@@ -88,7 +88,7 @@ jobs:
       - name: "List artifacts"
         run: ls -l .
 
-      - name: Generate Report
+      - name: "Generate Report"
         run: npm ci
 
       - name: Run ESLint
