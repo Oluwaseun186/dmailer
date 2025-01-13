@@ -53,8 +53,8 @@ jobs:
 
       - name: "Push Image to Docker Hub"
         run: |
-            docker push oluwaseun7/dmailer:latest
-            docker run -p 3000:3000 -d oluwaseun7/dmailer:latest
+          docker push oluwaseun7/dmailer:latest
+          docker run -p 3000:3000 -d oluwaseun7/dmailer:latest
      
 
       - name: "Upload artifact"
