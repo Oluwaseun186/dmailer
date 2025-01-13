@@ -28,7 +28,7 @@ jobs:
 
       # Run Linting
       - name: Run ESLint
-        run: npx eslint .
+        run: npx eslint . --ext .js,.jsx,.ts,.tsx
 
       # Run Lint-Staged
       - name: Run Lint-Staged
