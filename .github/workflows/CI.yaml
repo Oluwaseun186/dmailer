@@ -64,10 +64,11 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/download-artifact@v4
+    - name: Download artifact
+      uses: actions/download-artifact@v4
       with:
         name: my-artifact
-        path: home/documents/myartifact.txt
+        path: home/Documents/myartifact.txt
         
     - name: Display structure of downloaded files
       run: ls -R home/documents/myartifact.txt
