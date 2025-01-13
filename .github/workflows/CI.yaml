@@ -84,7 +84,7 @@ jobs:
 
 
       - name: List artifacts
-        run: ls -l ./work.txt
+        run: ls -l .
 
 
       - name: Send email
