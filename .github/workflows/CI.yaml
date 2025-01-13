@@ -37,14 +37,12 @@ jobs:
             docker push oluwaseun7/dmailer:latest
             docker run -p 3000:3000 -d oluwaseun7/dmailer:latest
 
-      - name: "Upload artifact"
-        uses: actions/upload-artifact@v4
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
         with:
           name: my-artifact
-          path: path/to/artifact/ # or path/to/artifact
-          compress: true
-          overwrite: true
-          include-hidden-file: true
+          path: ./path/to/artifact
+          retention-days: 30
 
       - name: Send email
         uses: dawidd6/action-send-mail@v4
@@ -60,7 +58,7 @@ jobs:
           secure: true # Set to false for non-TLS/SSL connections
           tls: true
   
-  deploy:
+  Deploy:
     needs: build
     runs-on: ubuntu-latest
     steps:
