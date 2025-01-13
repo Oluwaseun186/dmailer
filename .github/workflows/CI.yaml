@@ -85,7 +85,7 @@ jobs:
           npm install
 
 
-      - name: List artifacts
+      - name: "List artifacts"
         run: ls -l .
 
       - name: "Generate Report"  
