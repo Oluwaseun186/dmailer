@@ -57,7 +57,7 @@ jobs:
 
       - name: Go to the repo for Helm
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          TOKEN_GITHUB: ${{ secrets.TOKEN_GITHUB }}
         run: |
             git config --global user.email "adewumibode7@gmail.com"
             git config --global user.name "Oluwaseun186"
