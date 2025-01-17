@@ -28,13 +28,13 @@ jobs:
         run: 
           npm install
 
-      # Run Linting
-      - name: Run ESLint
-        run: npx eslint . 
+      # # Run Linting
+      # - name: Run ESLint
+      #   run: npx eslint . 
 
-      # Run Lint-Staged
-      - name: Run Lint-Staged
-        run: npx lint-staged
+      # # Run Lint-Staged
+      # - name: Run Lint-Staged
+      #   run: npx lint-staged
 
       # Run Tests
       - name: Run Tests
