@@ -55,6 +55,21 @@ jobs:
           docker push oluwaseun7/dmailer:1.0.1
           docker run -p 3000:3000 -d oluwaseun7/dmailer:latest
 
+      - name: Go to the repo for Helm
+        env:
+          TOKEN_GITHUB: ${{ secrets.TOKEN_GITHUB }}
+        run: |
+            git config --global user.email "adewumibode7@gmail.com"
+            git config --global user.name "Oluwaseun186"
+            git clone https://github.com/Oluwaseun186/doct.git dmailer2
+            cd dmailer2/templates
+            sed -i 's/test/test2/' deployment.yaml
+            sed -i 's/test/test2/' service.yaml
+            cat deployment.yaml
+            git remote add dmailer2 https://x-access-token:${{ secrets.TOKEN_GITHUB }}@github.com/Oluwaseun186/doct.git
+            git add .
+            git commit -m "Updated helm 1"
+            git push https://adewumibode7:${TOKEN_GITHUB}@github.com/Oluwaseun186/doct origin
 
       - name: "Upload artifact"
         uses: actions/upload-artifact@v4
