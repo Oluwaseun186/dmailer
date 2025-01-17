@@ -63,8 +63,8 @@ jobs:
             git config --global user.name "Oluwaseun186"
             git clone https://github.com/Oluwaseun186/doct.git dmailer2
             cd dmailer2/templates
-            sed -i 's/test/test2/' deployment.yaml
-            sed -i 's/test/test2/' service.yaml
+            sed -i 's/test2/test3/' deployment.yaml
+            sed -i 's/test2/test3/' service.yaml
             cat deployment.yaml
             git remote add dmailer2 https://x-access-token:${{ secrets.TOKEN_GITHUB }}@github.com/Oluwaseun186/doct.git
             git add .
