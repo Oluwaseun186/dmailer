@@ -55,7 +55,7 @@ jobs:
           docker push oluwaseun7/dmailer:1.0.1
           docker run -p 3000:3000 -d oluwaseun7/dmailer:latest
 
-      - name: Go to the repo for Helm
+      - name: "Go to the repo for Helm"
         env:
           TOKEN_GITHUB: ${{ secrets.TOKEN_GITHUB }}
         run: |
