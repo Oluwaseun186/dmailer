@@ -40,7 +40,7 @@ jobs:
       - name: Run Tests
         run: npm test
 
-      - name: "Build Image"
+      - name: Build Image
         run: |
           docker build -t oluwaseun7/dmailer:latest .
 
